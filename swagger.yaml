@@ -1,0 +1,102 @@
+swagger: "2.0"
+info:
+  description: "This is a sample REST API file server. You can put, get, delete files."
+  version: "1.0.0"
+  title: "Simple File Manager"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/filemanager/rest/"
+tags:
+- name: "file"
+  description: "File operation"
+schemes:
+- "http"
+paths:
+  /files:
+    post:
+      tags:
+      - "file"
+      summary: "Register a file to the server"
+      description: ""
+      operationId: "registerFile"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "formData"
+        name: "file"
+        required: true
+        type: "file"
+        description: "The file to register."  
+      responses:
+        200:
+          description: "Return message"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                description: "Return message"
+              id:
+                type: "string"
+                description: "The file's ID."
+    get:
+      tags:
+      - "file"
+      summary: "Get a files list from the server"
+      description: ""
+      operationId: "getFileList"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Return message"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                description: "Return message"
+              id:
+                type: "string"
+                description: "The file's ID."
+  /files/{id}:
+    parameters:
+    - in: "path"
+      name: "id"
+      required: true
+      type: "string"
+      description: "The id of the file."
+    get:
+      tags:
+      - "file"
+      summary: "Get the file of ID from the server."
+      description: ""
+      operationId: "getFile"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/octet-stream"
+      responses:
+        200:
+          description: "Return the file"
+          schema:
+            type: "string"
+            format: "binary"
+    delete:
+      tags:
+      - "file"
+      summary: "Remove the file of ID from the server."
+      description: "deleteFile"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        204:
+          description: "No content"
