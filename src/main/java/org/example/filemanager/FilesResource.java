@@ -92,7 +92,7 @@ public class FilesResource {
 
 
   /**
-   * Get a file of {id}.
+   * Get {id}'s file.
    *
    * @param id file's ID.
    * @return Response.
@@ -148,7 +148,7 @@ public class FilesResource {
   }
 
   /**
-   * Delete a file of {id}.
+   * Delete {id}'s file.
    *
    * @param id file's id.
    * @return Response.
