@@ -18,6 +18,10 @@ This program depends several software/tools. See the list below and prepare them
 
 Run build with gradle.
 
+Your build will fail at the first build because the server isn't running.
+If you see the failure at the ':test' task, you have to run the server like as the next topic.
+After running the server, you can re-run the build task and it will success.
+
 
 ## How to run
 
@@ -26,6 +30,7 @@ Build uber jar and run as:
 ```
 > makeUberJarAndRun.bat
 ```
+
 
 ## How to use
 
